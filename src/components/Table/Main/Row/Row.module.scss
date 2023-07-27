@@ -1,0 +1,45 @@
+.row {
+  display: flex;
+  border-bottom: 1px solid #e3e6ec;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 17.9px;
+
+  .container {
+    justify-content: space-between;
+  }
+
+  .id, .description, .title {
+    box-sizing: border-box;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .id {
+    padding: 0;
+    height: inherit;
+    justify-content: center;
+    text-align: center;
+    max-width: 101px;
+
+    .container {
+      max-width: 70px;
+    }
+
+  }
+
+  .title {
+    height: inherit;
+    max-width: 500px;
+    border-left: 1px solid #e3e6ec;
+    border-right: 1px solid #e3e6ec;
+  }
+
+  .description {
+    max-width: 476px;
+  }
+}

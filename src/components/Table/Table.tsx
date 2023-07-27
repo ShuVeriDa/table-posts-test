@@ -2,11 +2,10 @@ import {FC, useEffect} from 'react';
 import styles from './Table.module.scss';
 import {Header} from "./Header/Header.tsx";
 import {Main} from "./Main/Main.tsx";
-import {Pagination} from "../Pagination/Pagination.tsx";
 import {useDispatch} from "react-redux";
 import {AppDispatchType, useAppSelector} from "../../redux/store.ts";
 import {fetchPostsTC} from "../../redux/table/table.actions.ts";
-import {setCurrentPage, setOrder, setSortTitle} from "../../redux/table/tableSlice.ts";
+import {setOrder, setSortTitle} from "../../redux/table/tableSlice.ts";
 
 interface ITableProps {
 }
@@ -20,8 +19,6 @@ export const Table: FC<ITableProps> = () => {
       fetchPostsTC({search, order, sortTitle, currentPage})
     );
   }, [currentPage, search, order, sortTitle]);
-
-  const onChaneCurrentPage = (num: number) => dispatch(setCurrentPage(num))
 
   const onChangeSort = (value: 'id' | 'body' | 'title') => {
     dispatch(setSortTitle(value))
@@ -43,10 +40,7 @@ export const Table: FC<ITableProps> = () => {
         />
         <Main posts={posts}/>
       </table>
-      <Pagination currentPage={currentPage}
-                  onPageChange={onChaneCurrentPage}
-                  totalPages={posts.length}
-      />
+
     </div>
   );
 };
